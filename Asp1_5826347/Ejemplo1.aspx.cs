@@ -21,18 +21,19 @@ namespace Asp1_5826347
 
         protected void btn_Confir_Click(object sender, EventArgs e)
         {
-            //Save the cookies
-            Response.Cookies["ddlCategory"].Value = ddlCategory.SelectedValue;
-            Response.Cookies["ddlSupplier"].Value = ddlSupplier.SelectedValue;
-            Response.Cookies["txtProduct"].Value = txtProduct.Text;
-            Response.Cookies["txtDescription"].Value = txtDescription.Text;
-            Response.Cookies["txtImage"].Value = txtImage.Text;
-            Response.Cookies["txtPrice"].Value = txtPrice.Text;
-            Response.Cookies["txtNumberInStock"].Value = txtNumberInStock.Text;
-            Response.Cookies["txtNumberOnOrder"].Value = txtNumberOnOrder.Text;
-            Response.Cookies["txtReorderLevel"].Value = txtReorderLevel.Text;
-            //Go to the confirmation page.
-            Response.Redirect("Mostrar.aspx");
+            //Go to the confirmtion page with the encoded URL.
+            Response.Redirect(
+                "Mostrar.aspx" +
+                "?ddlCategory=" + ddlCategory.SelectedValue +
+                "&ddlSupplier=" + ddlSupplier.SelectedValue +
+                "&txtProduct=" + txtProduct.Text +
+                "&txtDescription=" + txtDescription.Text +
+                "&txtImage=" + txtImage.Text +
+                "&txtPrice=" + txtPrice.Text +
+                "&txtNumberInStock=" + txtNumberInStock.Text +
+                "&txtNumberOnOrder=" + txtNumberOnOrder.Text +
+                "&txtReorderLevel=" + txtReorderLevel.Text
+                );
         }
     }
 }

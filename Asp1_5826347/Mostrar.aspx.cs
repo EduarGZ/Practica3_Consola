@@ -15,19 +15,19 @@ namespace Asp1_5826347
             ddlCategory.Enabled = false;
             txtDescription.Enabled = false;
             //Retrieve the cookies.
-            ddlCategory.SelectedValue = Request.Cookies["ddlCategory"].Value;
-            ddlSupplier.SelectedValue = Request.Cookies["ddlSupplier"].Value;
-            txtProduct.Text = Request.Cookies["txtProduct"].Value;
-            txtDescription.Text = Request.Cookies["txtDescription"].Value;
-            txtImage.Text = Request.Cookies["txtImage"].Value;
-            Decimal decPrice = Convert.ToDecimal(Request.Cookies["txtPrice"].Value);
+            ddlCategory.SelectedValue = Request.QueryString["ddlCategory"];
+            ddlSupplier.SelectedValue = Request.QueryString["ddlSupplier"];
+            txtProduct.Text = Request.QueryString["txtProduct"];
+            txtDescription.Text = Request.QueryString["txtDescription"];
+            txtImage.Text = Request.QueryString["txtImage"];
+            Decimal decPrice = Convert.ToDecimal(Request.QueryString["txtPrice"]);
             txtPrice.Text = decPrice.ToString("c");
-            txtNumberInStock.Text = Request.Cookies["txtNumberInStock"].Value;
-            txtNumberOnOrder.Text = Request.Cookies["txtNumberOnOrder"].Value;
-            txtReorderLevel.Text = Request.Cookies["txtReorderLevel"].Value;
+            txtNumberInStock.Text = Request.QueryString["txtNumberInStock"];
+            txtNumberOnOrder.Text = Request.QueryString["txtNumberOnOrder"];
+            txtReorderLevel.Text = Request.QueryString["txtReorderLevel"];
             //compute and display the value in stock and the value on order.
-            Byte bytNumberInStock = Convert.ToByte(Request.Cookies["txtNumberInStock"].Value);
-            Byte bytNumberOnOrder = Convert.ToByte(Request.Cookies["txtNumberOnOrder"].Value);
+            Byte bytNumberInStock = Convert.ToByte(Request.QueryString["txtNumberInStock"]);
+            Byte bytNumberOnOrder = Convert.ToByte(Request.QueryString["txtNumberOnOrder"]);
             Decimal decValueInStock = decPrice * bytNumberInStock;
             Decimal decValueOnOrder = decPrice * bytNumberOnOrder;
             txtNumberInStock.Text = decValueInStock.ToString("c");
