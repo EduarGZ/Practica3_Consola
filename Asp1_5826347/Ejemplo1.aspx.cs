@@ -21,19 +21,18 @@ namespace Asp1_5826347
 
         protected void btn_Confir_Click(object sender, EventArgs e)
         {
-            //Go to the confirmtion page with the encoded URL.
-            Response.Redirect(
-                "Mostrar.aspx" +
-                "?ddlCategory=" + ddlCategory.SelectedValue +
-                "&ddlSupplier=" + ddlSupplier.SelectedValue +
-                "&txtProduct=" + txtProduct.Text +
-                "&txtDescription=" + txtDescription.Text +
-                "&txtImage=" + txtImage.Text +
-                "&txtPrice=" + txtPrice.Text +
-                "&txtNumberInStock=" + txtNumberInStock.Text +
-                "&txtNumberOnOrder=" + txtNumberOnOrder.Text +
-                "&txtReorderLevel=" + txtReorderLevel.Text
-                );
+            //Sava the session variables.
+            Session["ddlCategory"] = ddlCategory.SelectedValue;
+            Session["ddlSupplier"] = ddlSupplier.SelectedValue;
+            Session["txtProduct"] = txtProduct.Text;
+            Session["txtDescription"] = txtDescription.Text;
+            Session["txtImage"] = txtImage.Text;
+            Session["txtPrice"] = txtPrice.Text;
+            Session["txtNumberInStock"] = txtNumberInStock.Text;
+            Session["txtNumberOnOrder"] = txtNumberOnOrder.Text;
+            Session["txtReorderLevel"] = txtReorderLevel.Text;
+            //Go to the confirmation page.
+            Response.Redirect("Mostrar.aspx");
         }
     }
 }
